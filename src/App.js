@@ -4,7 +4,7 @@ import axios from "axios";
 import CoinList from "./components/CoinList";
 import "./styles/app.scss";
 
-function App() {
+const App = () => {
   const [coins, setCoins] = useState([]);
 
   useEffect(() => {
@@ -14,7 +14,6 @@ function App() {
       )
       .then((res) => {
         setCoins(res.data);
-
         console.log(res.data);
       })
       .catch((error) => console.log(error));
@@ -25,6 +24,6 @@ function App() {
       <CoinList coins={coins} />
     </div>
   );
-}
+};
 
 export default App;

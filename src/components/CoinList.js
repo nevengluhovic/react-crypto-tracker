@@ -1,11 +1,11 @@
 import React from "react";
 import Coin from "./Coin";
 
-function CoinList({ coins }) {
+const CoinList = ({ coins }) => {
   return (
     <div className="coin-app">
       <div className="coin-search">
-        <h1 className="coin-text"></h1>
+        <h1 className="coin-text">Search Currency</h1>
         <form action="">
           <input type="text" className="coin-input" placeholder="Search" />
         </form>
@@ -15,6 +15,6 @@ function CoinList({ coins }) {
       ))}
     </div>
   );
-}
+};
 
 export default CoinList;
