@@ -5,8 +5,10 @@ import CoinList from "./components/CoinList";
 import "./styles/app.scss";
 
 const App = () => {
+  //States
   const [coins, setCoins] = useState([]);
 
+  //Getting data when page loads
   useEffect(() => {
     axios
       .get(
@@ -21,7 +23,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <CoinList coins={coins} />
+      <CoinList coins={coins} setCoins={setCoins} />
     </div>
   );
 };
