@@ -14,6 +14,10 @@ const CoinList = ({ coins, setCoins }) => {
     coin.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="coin-app">
       <div className="coin-search">
@@ -21,7 +25,7 @@ const CoinList = ({ coins, setCoins }) => {
           Search Currency{" "}
           <FontAwesomeIcon icon={faSearch} className="result-icon" />
         </h1>
-        <form action="">
+        <form onSubmit={submitHandler} action="">
           <input
             onChange={inputChangeHandler}
             type="text"
@@ -40,6 +44,7 @@ const CoinList = ({ coins, setCoins }) => {
       <table>
         <thead className={filteredCoins.length === 0 ? "hidden" : ""}>
           <tr>
+            <th>Icon</th>
             <th>Name</th>
             <th>Code</th>
             <th>Price</th>
@@ -50,8 +55,10 @@ const CoinList = ({ coins, setCoins }) => {
         <tbody>
           {filteredCoins.map((coin) => (
             <tr>
-              <td className="name-breaking" data-label="Name">
+              <td data-label="Icon">
                 <img src={coin.image} alt="crypto" />
+              </td>
+              <td className="name-breaking" data-label="Name">
                 {coin.id}
               </td>
               <td data-label="Code">{coin.symbol.toUpperCase()}</td>
