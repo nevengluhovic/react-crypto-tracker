@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Coin from "./Coin";
+import NoResult from "./NoResult";
 
 const CoinList = ({ coins, setCoins }) => {
   const [search, setSearch] = useState("");
@@ -25,6 +26,7 @@ const CoinList = ({ coins, setCoins }) => {
           />
         </form>
       </div>
+      {filteredCoins.length === 0 ? <NoResult /> : ""}
       {filteredCoins.map((coin) => (
         <Coin key={coin.id} coin={coin} />
       ))}
