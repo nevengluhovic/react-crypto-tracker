@@ -50,20 +50,23 @@ const CoinList = ({ coins, setCoins }) => {
         <tbody>
           {filteredCoins.map((coin) => (
             <tr>
-              <td>
+              <td data-label="Name">
                 <img src={coin.image} alt="crypto" />
                 {coin.id}
               </td>
-              <td>{coin.symbol.toUpperCase()}</td>
-              <td>${coin.current_price.toLocaleString()}</td>
+              <td data-label="Code">{coin.symbol.toUpperCase()}</td>
+              <td data-label="Price">${coin.current_price.toLocaleString()}</td>
               <td
+                data-label="24h Change"
                 className={` ${
                   coin.price_change_percentage_24h > 0 ? "green" : "red"
                 }`}
               >
                 {coin.price_change_percentage_24h.toFixed(2)}%
               </td>
-              <td>${coin.market_cap.toLocaleString()}</td>
+              <td data-label="Market Cap">
+                ${coin.market_cap.toLocaleString()}
+              </td>
             </tr>
           ))}
         </tbody>
