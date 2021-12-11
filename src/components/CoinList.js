@@ -50,7 +50,7 @@ const CoinList = ({ coins, setCoins }) => {
         <tbody>
           {filteredCoins.map((coin) => (
             <tr>
-              <td data-label="Name">
+              <td className="name-breaking" data-label="Name">
                 <img src={coin.image} alt="crypto" />
                 {coin.id}
               </td>
