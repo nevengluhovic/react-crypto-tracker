@@ -18,6 +18,8 @@ const CoinList = ({ coins, setCoins }) => {
     e.preventDefault();
   };
 
+  // coins.id.replace(/-/g, " ");
+
   return (
     <div className="coin-app">
       <div className="coin-search">
@@ -59,7 +61,7 @@ const CoinList = ({ coins, setCoins }) => {
                 <img src={coin.image} alt="crypto" />
               </td>
               <td className="name-breaking" data-label="Name">
-                {coin.id}
+                {coin.id.replace(/-/, " ")}
               </td>
               <td data-label="Code">{coin.symbol.toUpperCase()}</td>
               <td data-label="Price">${coin.current_price.toLocaleString()}</td>
