@@ -7,6 +7,7 @@ import "./styles/app.scss";
 const App = () => {
   //States
   const [coins, setCoins] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   //Getting data when page loads
   useEffect(() => {
@@ -16,14 +17,14 @@ const App = () => {
       )
       .then((res) => {
         setCoins(res.data);
-        console.log(res.data);
+        setLoading(false);
       })
       .catch((error) => console.log(error));
   }, []);
 
   return (
     <div className="App">
-      <CoinList coins={coins} setCoins={setCoins} />
+      <CoinList loading={loading} coins={coins} setCoins={setCoins} />
     </div>
   );
 };
