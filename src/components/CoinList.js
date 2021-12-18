@@ -75,7 +75,7 @@ const CoinList = ({ coins, setCoins, loading }) => {
                     coin.price_change_percentage_24h > 0 ? "green" : "red"
                   }`}
                 >
-                  {coin.price_change_percentage_24h}%
+                  {coin.price_change_percentage_24h.toFixed(2)}%
                 </td>
                 <td data-label="Market Cap">
                   ${coin.market_cap.toLocaleString()}
