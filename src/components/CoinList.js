@@ -44,7 +44,7 @@ const CoinList = ({ coins, setCoins, loading }) => {
           </div>
         )}
         <table>
-          {filteredCoins.lenght > 0 && (
+          {filteredCoins.length > 0 ? (
             <thead>
               <tr>
                 <th>Icon</th>
@@ -55,6 +55,8 @@ const CoinList = ({ coins, setCoins, loading }) => {
                 <th>Market Cap</th>
               </tr>
             </thead>
+          ) : (
+            ""
           )}
           <tbody>
             {filteredCoins.map((coin) => (
@@ -75,7 +77,7 @@ const CoinList = ({ coins, setCoins, loading }) => {
                     coin.price_change_percentage_24h > 0 ? "green" : "red"
                   }`}
                 >
-                  {coin.price_change_percentage_24h}%
+                  {coin.price_change_percentage_24h.toFixed(2)}%
                 </td>
                 <td data-label="Market Cap">
                   ${coin.market_cap.toLocaleString()}
